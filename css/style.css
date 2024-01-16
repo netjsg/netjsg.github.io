@@ -43,6 +43,15 @@ body {
   letter-spacing: 20px;
   font-family: txt3, serif;
 }
+.container .top .menu {
+  text-decoration: none;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 200;
+  margin-left: 86%;
+  padding-top: 66px;
+  font-family: webfont2, serif;
+}
 .container .top .middle-title {
   position: absolute;
   bottom: 30%;
@@ -845,11 +854,11 @@ html {
   margin: 0 auto;
 }
 .music_box_title {
-  text-align: center;
+  text-align: left;
 }
 .music163 {
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 .ana_box {
   width: 100%;
