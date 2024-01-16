@@ -1,0 +1,192 @@
+.tags-wrap {
+  width: 100%;
+  background-color: #fff;
+}
+.tags-wrap .tags-title {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.tags-wrap .tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 2rem;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.tags-wrap .tags .tag {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f5f5f5;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+.tags-wrap .tags .tag:hover {
+  color: #fff;
+  background-color: #333;
+}
+.tags-wrap .tags .tag:hover .tag-icon {
+  color: #fc0b1b;
+}
+.tags-wrap .one-tag-list {
+  width: 80%;
+  margin: 0 auto;
+}
+.tags-wrap .one-tag-list .tag-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #f5f5f5;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+.tags-wrap .one-tag-list .tag-text .post-title-left {
+  display: none;
+  width: 0.26rem;
+  height: 0.88rem;
+  margin-right: 10px;
+  background-color: #333;
+}
+.tags-wrap .one-tag-list .tag-text:hover {
+  color: #fff;
+  background-color: #333;
+}
+.tags-wrap .one-tag-list .tag-text:hover .post-title-left {
+  display: inline-block;
+  background-color: #fc0b1b;
+}
+.tags-wrap .one-tag-list .go-top-a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.tags-wrap .one-tag-list .go-top-a:hover {
+  color: #fff;
+  background-color: #333;
+}
+.tags-wrap .one-tag-list .post-preview .tag-item-date {
+  font-size: 0.8rem;
+  color: #999;
+  padding: 0 10px;
+}
+.tags-wrap .one-tag-list .post-preview .post-title-a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.tags-wrap .one-tag-list .post-preview .post-title-a:hover {
+  color: #333;
+}
+.tags-wrap .one-tag-list .post-preview .post-title-a .post-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+  text-decoration: none;
+}
+/* 小屏幕手机端 */
+@media (min-width: 0px) and (max-width: 768px) {
+  .tags-wrap {
+    width: 100%;
+    background-color: #fff;
+  }
+  .tags-wrap .tags-title {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .tags-wrap .tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 2rem;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+  .tags-wrap .tags .tag {
+    width: 100%;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.2s ease-in-out;
+  }
+  .tags-wrap .tags .tag:hover {
+    color: #fff;
+    background-color: #333;
+  }
+  .tags-wrap .tags .tag:hover .tag-icon {
+    color: #fc0b1b;
+  }
+  .tags-wrap .one-tag-list {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .tags-wrap .one-tag-list .tag-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease-in-out;
+  }
+  .tags-wrap .one-tag-list .tag-text .post-title-left {
+    display: none;
+    width: 0.26rem;
+    height: 0.88rem;
+    margin-right: 10px;
+    background-color: #333;
+  }
+  .tags-wrap .one-tag-list .tag-text:hover {
+    color: #fff;
+    background-color: #333;
+  }
+  .tags-wrap .one-tag-list .tag-text:hover .post-title-left {
+    display: inline-block;
+    background-color: #fc0b1b;
+  }
+  .tags-wrap .one-tag-list .go-top-a {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+  .tags-wrap .one-tag-list .go-top-a:hover {
+    color: #fff;
+    background-color: #333;
+  }
+  .tags-wrap .one-tag-list .post-preview .tag-item-date {
+    font-size: 0.8rem;
+    color: #999;
+    padding: 0 10px;
+  }
+  .tags-wrap .one-tag-list .post-preview .post-title-a {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+  .tags-wrap .one-tag-list .post-preview .post-title-a:hover {
+    color: #333;
+  }
+  .tags-wrap .one-tag-list .post-preview .post-title-a .post-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+    text-decoration: none;
+  }
+}

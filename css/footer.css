@@ -1,0 +1,58 @@
+.footer-container {
+  margin-top: 6rem;
+  display: flex;
+}
+.footer-container .content {
+  margin: 1.5em auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-container .content .ye {
+  color: rgba(82,100,136,0.6);
+  font-size: 2rem;
+  width: 30px;
+  height: 30px;
+  background: url("../svg/ye.svg") no-repeat;
+  background-size: 30px 30px;
+}
+.footer-container .content .year {
+  width: 100px;
+  background-color: #fc0b1b;
+  color: #fff;
+  padding: 3px 3px;
+  font-size: 1.2rem;
+  font-family: txt2, serif;
+  letter-spacing: 5px;
+}
+.footer-container .content .text {
+  padding-top: 9px;
+  color: rgba(82,100,136,0.6);
+  letter-spacing: 5px;
+  font-family: txt1, serif;
+  font-size: 1rem;
+}
+.footer-container .content .copyright {
+  padding-top: 3px;
+  color: rgba(82,100,136,0.6);
+  letter-spacing: 5px;
+  font-family: txt1, serif;
+  font-size: 1rem;
+}
+.footer-container .content .link {
+  margin-bottom: 30px;
+  color: rgba(82,100,136,0.6);
+  letter-spacing: 5px;
+  font-family: txt1, serif;
+  font-size: 1rem;
+}
+.footer-container .content .link .link-name {
+  display: inline-block;
+  color: rgba(82,100,136,0.6);
+}
+.footer-container .content .router-link-active {
+  color: #ff0;
+}
+.footer-container .content a {
+  color: rgba(82,100,136,0.6);
+}

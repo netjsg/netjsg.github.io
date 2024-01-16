@@ -1,0 +1,11 @@
+.prod-img {
+  display: none;
+}
+body,
+html {
+  cursor: url("../image/cur/normal.cur"), auto !important;
+}
+/*a标签*/
+a:hover {
+  cursor: url("../image/cur/link.cur"), auto;
+}

@@ -1,0 +1,59 @@
+.tag-box {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.tag-box .tag-top-image {
+  width: 100%;
+}
+.tag-box .tag-top-image img {
+  width: 20%;
+}
+.tag-box .tag-list .tag-list-item {
+  display: flex;
+  margin: 0 auto;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.tag-box .tag-list .tag-list-item .tag-item-date {
+  display: inline-block;
+  margin-right: 10px;
+  color: #999;
+}
+.tag-box .tag-list .tag-list-item .tag-item-a {
+  color: #333;
+}
+.tag-box .tag-list .tag-list-item .tag-item-a a {
+  color: #333;
+  text-decoration: none;
+}
+.tag-box .page {
+  margin-top: 2rem;
+  color: #333;
+}
+.tag-box .page .current {
+  color: #fff;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 2px solid #fc0b1b;
+  background-color: #fc0b1b;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+.tag-box .page .prev .next {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.tag-box .page a {
+  color: #333;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 2px solid #ddd;
+  text-decoration: none;
+}
