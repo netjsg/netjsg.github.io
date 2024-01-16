@@ -11,7 +11,7 @@ body {
   position: absolute;
   width: 100%;
   height: 136vh;
-  background-image: url("/image/index/img.png");
+  background-image: url("/image/index/img2.JPG");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -27,8 +27,8 @@ body {
 }
 .container .top .top-title {
   position: absolute;
-  top: 10%;
-  left: 7%;
+  top: 5%;
+  left: 5%;
 }
 .container .top .top-title .txt-1 {
   color: #fff;
@@ -357,7 +357,6 @@ body {
   background-size: 30px 30px;
 }
 .footer-container .content .year {
-  width: 100px;
   background-color: #fc0b1b;
   color: #fff;
   padding: 3px 3px;
