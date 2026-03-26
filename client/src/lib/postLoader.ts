@@ -14,9 +14,13 @@ let cachedPosts: ParsedPost[] | null = null;
  */
 async function getArticleFiles(): Promise<string[]> {
   try {
-    const response = await fetch('/api/posts');
+    // 生产环境下使用 build 时生成的 posts.json
+    // 使用 import.meta.env.BASE_URL 确保在 github.io 的子目录下也能正确找到
+    const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+    const url = import.meta.env.PROD ? `${baseUrl}posts.json` : '/api/posts';
+    const response = await fetch(url);
     if (!response.ok) {
-      console.warn('Failed to fetch article list from /api/posts');
+      console.warn(`Failed to fetch article list from ${url}`);
       return [];
     }
     return await response.json();
@@ -37,11 +41,12 @@ export async function loadPosts(): Promise<ParsedPost[]> {
   try {
     const posts: ParsedPost[] = [];
     const articleFiles = await getArticleFiles();
+    const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 
     // 加载每个 Markdown 文件
     for (const file of articleFiles) {
       try {
-        const postResponse = await fetch(`/posts/${file}`);
+        const postResponse = await fetch(`${baseUrl}posts/${file}`);
         if (!postResponse.ok) {
           console.warn(`Failed to load post ${file}: ${postResponse.status}`);
           continue;

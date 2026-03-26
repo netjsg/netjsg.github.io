@@ -153,8 +153,15 @@ function vitePluginManusDebugCollector(): Plugin {
 /**
  * Vite plugin to provide /api/posts endpoint
  * Lists all .md files in client/public/posts
+ * Also generates a posts.json in build output for static hosting
  */
 function vitePluginPostList(): Plugin {
+  const postsDir = path.resolve(import.meta.dirname, "client/public/posts");
+  const getPostFiles = () => {
+    if (!fs.existsSync(postsDir)) return [];
+    return fs.readdirSync(postsDir).filter((file) => file.endsWith(".md"));
+  };
+
   return {
     name: "post-list",
     configureServer(server: ViteDevServer) {
@@ -163,21 +170,23 @@ function vitePluginPostList(): Plugin {
           return next();
         }
 
-        const postsDir = path.resolve(import.meta.dirname, "client/public/posts");
-        if (!fs.existsSync(postsDir)) {
-          res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(JSON.stringify([]));
-          return;
-        }
-
         try {
-          const files = fs.readdirSync(postsDir).filter((file) => file.endsWith(".md"));
+          const files = getPostFiles();
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify(files));
         } catch (e) {
           res.writeHead(500, { "Content-Type": "application/json" });
           res.end(JSON.stringify({ error: String(e) }));
         }
+      });
+    },
+    // For production build: generate posts.json
+    generateBundle() {
+      const files = getPostFiles();
+      this.emitFile({
+        type: "asset",
+        fileName: "posts.json",
+        source: JSON.stringify(files),
       });
     },
   };
@@ -191,9 +200,9 @@ const plugins = [
   vitePluginPostList(),
 ];
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins,
-  base: "/", // GitHub Pages 根目录部署
+  base: mode === "production" ? "/gio-blog/" : "/", // GitHub Pages 生产环境下使用仓库名作为 base，开发环境下使用根路径
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -225,4 +234,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));

@@ -4,6 +4,7 @@
  */
 
 import { blogMetadata } from '@/lib/metadata';
+import { Link } from 'wouter';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,14 +18,14 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-foreground mb-4">快速链接</h3>
             <ul className="flex flex-row gap-6">
               <li>
-                <a href="/" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link href="/" className="text-foreground/60 hover:text-foreground transition-colors">
                   首页
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/archive" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link href="/archive" className="text-foreground/60 hover:text-foreground transition-colors">
                   存档
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
