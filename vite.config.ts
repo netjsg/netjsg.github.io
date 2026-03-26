@@ -202,7 +202,7 @@ const plugins = [
 
 export default defineConfig(({ mode }) => ({
   plugins,
-  base: mode === "production" ? "/gio-blog/" : "/", // GitHub Pages 生产环境下使用仓库名作为 base，开发环境下使用根路径
+  base: "/", // 对于 username.github.io 这种主域名部署，使用根路径 "/"
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

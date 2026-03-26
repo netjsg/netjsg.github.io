@@ -8,7 +8,7 @@
       // https://github.com/rafgraph/spa-github-pages
       // This script takes the current url and converts it into a query string,
       // then redirects the browser to the index.html page.
-      var pathSegmentsToKeep = 1; // 1 for project pages (username.github.io/repo-name/)
+      var pathSegmentsToKeep = 0; // 对于 username.github.io 这种主域名部署，设置为 0
 
       var l = window.location;
       l.replace(
