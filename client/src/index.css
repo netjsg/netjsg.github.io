@@ -1,0 +1,318 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* 极简主义设计 - 深灰 + 纳白 + 浅灰 + 深蓝 */
+  --primary: oklch(0.18 0.05 260); /* 深蓝 #1E40AF */
+  --primary-foreground: oklch(1 0 0); /* 纳白 */
+  --sidebar-primary: oklch(0.18 0.05 260);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --chart-1: oklch(0.18 0.05 260);
+  --chart-2: oklch(0.18 0.05 260);
+  --chart-3: oklch(0.18 0.05 260);
+  --chart-4: oklch(0.18 0.05 260);
+  --chart-5: oklch(0.18 0.05 260);
+  --radius: 0.5rem; /* 极简风格使用较小的圆角 */
+  --background: oklch(1 0 0); /* 纳白 */
+  --foreground: oklch(0.15 0.02 260); /* 深灰 #1F2937 */
+  --card: oklch(0.98 0.001 0); /* 浅灰 #F3F4F6 */
+  --card-foreground: oklch(0.15 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 260);
+  --secondary: oklch(0.95 0.001 0); /* 浅灰 */
+  --secondary-foreground: oklch(0.15 0.02 260);
+  --muted: oklch(0.92 0.001 0); /* 浅灰 */
+  --muted-foreground: oklch(0.45 0.01 260);
+  --accent: oklch(0.18 0.05 260); /* 深蓍 */
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.001 0); /* 浅灰边框 */
+  --input: oklch(0.95 0.001 0);
+  --ring: oklch(0.18 0.05 260);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.15 0.02 260);
+  --sidebar-accent: oklch(0.18 0.05 260);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.92 0.001 0);
+  --sidebar-ring: oklch(0.18 0.05 260);
+}
+
+.dark {
+  --primary: oklch(0.65 0.08 260); /* 柔和且深邃的莫兰迪蓝 */
+  --primary-foreground: oklch(0.98 0.01 260);
+  --sidebar-primary: oklch(0.65 0.08 260);
+  --sidebar-primary-foreground: oklch(0.98 0.01 260);
+  --background: oklch(0.12 0.02 260); /* 极暗的蓝灰色背景 */
+  --foreground: oklch(0.9 0.02 260);
+  --card: oklch(0.16 0.02 260);
+  --card-foreground: oklch(0.9 0.02 260);
+  --popover: oklch(0.16 0.02 260);
+  --popover-foreground: oklch(0.9 0.02 260);
+  --secondary: oklch(0.2 0.02 260);
+  --secondary-foreground: oklch(0.8 0.02 260);
+  --muted: oklch(0.2 0.02 260);
+  --muted-foreground: oklch(0.6 0.02 260);
+  --accent: oklch(0.65 0.08 260);
+  --accent-foreground: oklch(0.98 0.01 260);
+  --destructive: oklch(0.6 0.18 25);
+  --destructive-foreground: oklch(0.98 0.01 25);
+  --border: oklch(0.25 0.02 260);
+  --input: oklch(0.25 0.02 260);
+  --ring: oklch(0.65 0.08 260);
+  --chart-1: oklch(0.65 0.08 260);
+  --chart-2: oklch(0.55 0.12 260);
+  --chart-3: oklch(0.45 0.15 260);
+  --chart-4: oklch(0.35 0.18 260);
+  --chart-5: oklch(0.25 0.2 260);
+  --sidebar: oklch(0.16 0.02 260);
+  --sidebar-foreground: oklch(0.9 0.02 260);
+  --sidebar-accent: oklch(0.65 0.08 260);
+  --sidebar-accent-foreground: oklch(0.98 0.01 260);
+  --sidebar-border: oklch(0.25 0.02 260);
+  --sidebar-ring: oklch(0.65 0.08 260);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background-image: 
+      radial-gradient(at 0% 0%, oklch(0.5 0.1 260 / 0.03) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, oklch(0.5 0.1 260 / 0.03) 0px, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    @apply text-foreground;
+  }
+  
+  h1 {
+    @apply text-5xl;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    @apply text-4xl;
+    letter-spacing: -0.01em;
+  }
+  
+  h3 {
+    @apply text-2xl;
+  }
+  
+  code {
+    font-family: 'Fira Code', monospace;
+    @apply text-sm bg-secondary px-1.5 py-0.5 rounded text-foreground;
+  }
+  
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors duration-200;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  
+  /* 极简主义设计特效 */
+  .divider {
+    @apply border-t border-border;
+  }
+  
+  .subtle-shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  
+  .card-minimal {
+    @apply bg-card p-6 rounded transition-all duration-200;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .card-minimal:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+  
+  /* Prose styles for markdown content */
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose h1 {
+    @apply text-4xl font-bold text-foreground mt-8 mb-4;
+  }
+  
+  .prose h2 {
+    @apply text-3xl font-bold text-foreground mt-8 mb-4;
+  }
+  
+  .prose h3 {
+    @apply text-2xl font-bold text-foreground mt-6 mb-3;
+  }
+  
+  .prose p {
+    @apply text-foreground/80 mb-4 leading-relaxed;
+  }
+  
+  .prose ul,
+  .prose ol {
+    @apply mb-4 ml-6;
+  }
+  
+  .prose li {
+    @apply text-foreground/80 mb-2;
+  }
+  
+  .prose strong {
+    @apply font-bold text-foreground;
+  }
+  
+  .prose em {
+    @apply italic text-foreground/80;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-primary pl-4 italic text-foreground/70 my-4;
+  }
+  
+  .prose code {
+    @apply bg-slate-100 text-slate-900 px-2 py-1 rounded font-mono text-sm;
+  }
+  
+  .prose pre {
+    @apply bg-slate-900 text-slate-100 p-4 rounded overflow-x-auto my-4;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent text-inherit px-0 py-0;
+  }
+  
+  .prose a {
+    @apply text-primary hover:text-primary/80 transition-colors;
+  }
+  
+  .prose img {
+    @apply rounded my-4 max-w-full h-auto;
+  }
+  
+  .prose table {
+    @apply w-full border-collapse my-4;
+  }
+  
+  .prose th,
+  .prose td {
+    @apply border border-border px-4 py-2 text-left;
+  }
+  
+  .prose th {
+    @apply bg-card font-bold text-foreground;
+  }
+}
