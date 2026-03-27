@@ -53,7 +53,15 @@ export async function loadPosts(): Promise<ParsedPost[]> {
         }
 
         const markdown = await postResponse.text();
-        const post = parseMarkdown(markdown);
+        // 处理文件路径
+        const pathParts = file.split('/');
+        const fileName = pathParts.pop() || '';
+        const folderName = pathParts.pop(); // 获取直接父文件夹名称
+        
+        const fallbackSlug = fileName.replace(/\.md$/, '');
+        const fallbackCategory = folderName || '未分类';
+        
+        const post = parseMarkdown(markdown, fallbackSlug, fallbackCategory);
 
         if (post) {
           posts.push(post);

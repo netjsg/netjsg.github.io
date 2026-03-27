@@ -5,33 +5,32 @@
 
 export interface PostMetadata {
   title: string;
-  slug: string;
+  slug?: string;
   date: string;
-  category: string;
+  category?: string; // 变为可选
   tags: string[];
   excerpt?: string;
 }
 
-export interface ParsedPost extends PostMetadata {
+export interface ParsedPost extends Omit<PostMetadata, 'slug' | 'category'> {
   id: string;
+  slug: string;
+  category: string; // 解析后确保存在
   content: string;
-  excerpt: string; // 在 ParsedPost 中确保 excerpt 存在（即使是自动提取的）
+  excerpt: string;
 }
 
 /**
  * 解析 Front Matter 和 Markdown 内容
- * Front Matter 格式：
- * ---
- * title: 文章标题
- * slug: url-slug
- * date: 2024-01-15
- * category: 分类
- * tags: [标签1, 标签2]
- * excerpt: 摘要
- * ---
- * # 文章内容
+ * @param markdown 原始文本
+ * @param fallbackSlug 如果 Front Matter 中没有 slug，使用的备用值（通常是文件名）
+ * @param fallbackCategory 如果 Front Matter 中没有 category，使用的备用值（通常是文件夹名）
  */
-export function parseMarkdown(markdown: string): ParsedPost | null {
+export function parseMarkdown(
+  markdown: string,
+  fallbackSlug?: string,
+  fallbackCategory?: string
+): ParsedPost | null {
   // 移除 BOM 和规范化换行符
   let normalized = markdown.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n');
 
@@ -57,10 +56,24 @@ export function parseMarkdown(markdown: string): ParsedPost | null {
     return null;
   }
 
+  const finalSlug = metadata.slug || fallbackSlug;
+  if (!finalSlug) {
+    console.error('Post missing both slug in front matter and fallback slug');
+    return null;
+  }
+
+  // 提取分类：如果 category 是路径（如 client/public/posts/教程），取最后一部分
+  let finalCategory = metadata.category || fallbackCategory || '未分类';
+  if (finalCategory.includes('/')) {
+    finalCategory = finalCategory.split('/').pop() || '未分类';
+  }
+
   return {
-    id: metadata.slug,
-    content: content,
     ...metadata,
+    id: finalSlug,
+    slug: finalSlug,
+    category: finalCategory,
+    content: content,
     excerpt: metadata.excerpt || extractExcerpt(content),
   };
 }

@@ -46,10 +46,17 @@ export default function Header() {
 
         {/* Navigation Links */}
         <div className="flex items-center gap-6 md:gap-8">
-          {/* Static Links */}
+          {/* Dynamic Category Links */}
           <div className="hidden md:flex gap-6">
-            <Link href="/category/技术" className="text-sm text-foreground/70 hover:text-foreground transition-colors">技术</Link>
-            <Link href="/category/生活" className="text-sm text-foreground/70 hover:text-foreground transition-colors">生活</Link>
+            {categories.map((cat) => (
+              <Link 
+                key={cat.slug} 
+                href={`/category/${cat.name}`} 
+                className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+              >
+                {cat.name}
+              </Link>
+            ))}
           </div>
 
           {/* Archive Link */}

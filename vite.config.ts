@@ -157,9 +157,21 @@ function vitePluginManusDebugCollector(): Plugin {
  */
 function vitePluginPostList(): Plugin {
   const postsDir = path.resolve(import.meta.dirname, "client/public/posts");
-  const getPostFiles = () => {
-    if (!fs.existsSync(postsDir)) return [];
-    return fs.readdirSync(postsDir).filter((file) => file.endsWith(".md"));
+  const getPostFiles = (dir: string = postsDir, baseDir: string = ""): string[] => {
+    if (!fs.existsSync(dir)) return [];
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    const files: string[] = [];
+
+    for (const entry of entries) {
+      const res = path.resolve(dir, entry.name);
+      const relativePath = baseDir ? `${baseDir}/${entry.name}` : entry.name;
+      if (entry.isDirectory()) {
+        files.push(...getPostFiles(res, relativePath));
+      } else if (entry.isFile() && entry.name.endsWith(".md")) {
+        files.push(relativePath);
+      }
+    }
+    return files;
   };
 
   return {
